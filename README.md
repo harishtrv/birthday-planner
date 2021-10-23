@@ -1,4 +1,4 @@
-# Project Idea: Online Birthday/Anniversary Planner
+# Online Birthday/Anniversary Planner
 
 Problem Statement:
 - I forget birthday
