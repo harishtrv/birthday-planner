@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import styles from './friendform.module.css';
 
 class FriendForm extends React.Component{
   renderError({error, touched}){
@@ -12,7 +13,7 @@ class FriendForm extends React.Component{
     }
   }
   renderInput = ({input, label, meta}) => {
-    const className = `field ${meta.error && meta.touched?'error':''}`
+    const className = `field ${meta.error && meta.touched?'error':''}`;
     return (
       <div className={className}>
         <label>{label}</label>
@@ -27,10 +28,11 @@ class FriendForm extends React.Component{
   }
   render(){
     return (
-    <form onSubmit={this.props.handleSubmit(this.onSubmit)} className='ui form error'>
-      <Field name='title' component={this.renderInput} label="Enter Title"/>
-      <Field name='description' component={this.renderInput} label="Enter Description"/>
-    <button className='ui button primary'>Submit</button>
+    <form onSubmit={this.props.handleSubmit(this.onSubmit)} className={styles.form}>
+      <Field name='name' component={this.renderInput} label="Enter Name"/>
+      <Field name='birthday' component={this.renderInput} label="Enter Date of Birth"/>
+      <Field name='contact' component={this.renderInput} label="Enter Contact detail"/>
+    <button className={styles.btn}>Submit</button>
     </form>
     );
   }

@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from './dropdown.module.css';
 
 class DropDown extends React.Component {
   sort = (e) => {
-      if(e.target.value == '' || e.target.value == null){
+      if(e.target.value === '' || e.target.value === null){
         this.props.changeList(this.props.list);
         return null;
       }
@@ -13,11 +14,13 @@ class DropDown extends React.Component {
         case '1':
             this.props.changeList(this.props.list.sort((f1,f2)=>f1.birthday>f2.birthday));
             break;
+        default :
+            return null;
       }
   }
   render(){
     return (
-      <select class="ui dropdown" onChange={(e)=>this.sort(e)}>
+      <select onChange={(e)=>this.sort(e)}>
         <option value="">Sort By</option>
         <option value="0">Sort By Name</option>
         <option value="1">Sort By DOB</option>

@@ -1,0 +1,24 @@
+.myheader{
+  border-bottom: 2px solid rgba(34,36,38,.15);
+  display: flex;
+  margin: 1rem;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-weight: 400;
+}
+.myheader img{
+  height: 40px;
+  width: 40px;
+}
+.myheader ul{
+  display: flex;
+  margin: 10px;
+  list-style-type: none;
+}
+.myheader ul li{
+  margin: 0px 10px;
+  font-size: 20px;
+}
+.myheader div{
+  display: flex;
+  margin-left: auto !important;
+}

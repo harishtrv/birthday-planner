@@ -1,7 +1,7 @@
 import React from 'react';
-import GoogleAuth from './GoogleAuth';
+import GoogleAuth from '../GoogleAuth/GoogleAuth';
 import {connect} from 'react-redux';
-import history from '../history';
+import history from '../../history';
 
 class Home extends React.Component {
 
@@ -16,7 +16,7 @@ class Home extends React.Component {
   }
   render(){
   return (
-    <div className='ui container'>
+    <div className='container1'>
       <h1>Welcome to Birthday Planner</h1>
       {this.validateAndRender()}
     </div>

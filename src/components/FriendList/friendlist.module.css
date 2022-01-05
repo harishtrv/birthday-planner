@@ -1,0 +1,30 @@
+.container{
+margin: 20px;
+}
+
+.add{
+  height: 40px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  transition-duration: 0.4s;
+  margin: 5px;
+}
+
+.add:hover {
+  background-color: #838383;
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 320px 150px 170px;
+}
+
+.cardgrid{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}

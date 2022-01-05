@@ -1,0 +1,20 @@
+.searchbox{
+  border : 3px solid #9e9c9ce3;
+  border-radius: 500rem;
+  height: 40px;
+  width: 300px;
+  margin: 5px 2px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+input{
+  border: none;
+  width: 300px;
+}
+input:focus{
+  outline: none;
+}
+i{
+  align-items: right;
+}

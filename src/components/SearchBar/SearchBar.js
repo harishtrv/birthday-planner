@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './searchBar.module.css';
 
 class SearchBar extends React.Component {
   timer = null;
@@ -7,11 +8,11 @@ class SearchBar extends React.Component {
       clearInterval(this.timer);
     }
     var fun = ()=>{
-      if(e.target.value == '' || e.target.value == null){
+      if(e.target.value === '' || e.target.value === null){
         this.props.changeList(this.props.list);
       }
       else{
-      this.props.changeList(this.props.list.filter(f=>e.target.value==f.name));
+      this.props.changeList(this.props.list.filter(f=>e.target.value===f.name));
       }
       return null;
     }
@@ -20,12 +21,10 @@ class SearchBar extends React.Component {
   }
   render(){
     return (
-      <div className="ui category search">
-        <div className="ui icon input">
-          <input className="prompt" type="text" placeholder="Search Friend..." onChange={(e)=>this.search(e)} />
+        <div className={styles.searchbox}>
+          <input type="text" placeholder="Search Friend..." onChange={(e)=>this.search(e)} />
           <i className="search icon"></i>
         </div>
-      </div>
     );
   }
 }

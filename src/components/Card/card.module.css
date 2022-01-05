@@ -1,0 +1,70 @@
+.card{
+  display: flex;
+  border: 1.5px solid black;
+  border-radius: 10px;
+  flex-direction: column;
+  gap: 10px;
+  width: 290px;
+  margin: 5px;
+  z-index: 2;
+  overflow: auto;
+}
+.card:hover{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.details{
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  line-break: normal;
+}
+.name{
+  font-weight: 600;
+  text-transform: capitalize;
+  margin: 3px;
+  color : black;
+}
+.contact{
+  margin: 3px;
+  line-break: unset;
+}
+.dob{
+  margin: 3px;
+}
+.grpButton{
+  height: 40px;
+  width: 150px;
+  background-color: rgb(107, 107, 107);
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  margin: 5px;
+}
+.twinbuttons{
+  display: flex;
+  margin: 10px 10px;
+  align-content: center;
+}
+.edit{
+  border: 1.5px solid rgb(0, 199, 0);
+  border-radius: 3px;
+  margin: 10px;
+  padding: 5px 40px;
+  color: rgb(0, 199, 0);
+}
+.edit:hover{
+  color: white;
+  background-color: rgb(0, 199, 0);
+}
+.delete{
+  border: 1.5px solid red;
+  border-radius: 3px;
+  margin: 10px;
+  color: red;
+  padding: 5px 40px;
+}
+.delete:hover{
+  color: white;
+  background-color: red;
+}
