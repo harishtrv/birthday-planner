@@ -12,6 +12,32 @@
 .card:hover{
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
+.threedots{
+  cursor: pointer;
+  position: absolute;
+  align-self: flex-end;
+}
+.threedots:after {
+  content: '\2807';
+  }
+.menu{
+  padding: 5px;
+  position: absolute;
+  align-self: flex-end;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  z-index: 1001;
+  margin: 20px;
+}
+.menuitems{
+  display: flex;
+  position: relative;
+  color: black;
+}
+.menuitems:hover{
+  color: black;
+}
 .details{
   display: flex;
   flex-direction: column;
@@ -21,8 +47,10 @@
 .name{
   font-weight: 600;
   text-transform: capitalize;
-  margin: 3px;
+  margin: 5px;
   color : black;
+  overflow: hidden;
+  width: 235px;
 }
 .contact{
   margin: 3px;
@@ -37,9 +65,13 @@
   background-color: rgb(107, 107, 107);
   color: white;
   cursor: pointer;
-  border: none;
   border-radius: 4px;
   margin: 5px;
+  text-align: center;
+  padding: 9px;
+}
+.grpButton:hover{
+  color: white;
 }
 .twinbuttons{
   display: flex;

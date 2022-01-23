@@ -8,17 +8,44 @@
 .myheader img{
   height: 40px;
   width: 40px;
+  margin-top: 10px;
 }
 .myheader ul{
   display: flex;
   margin: 10px;
   list-style-type: none;
+  margin-top: 25px;
 }
 .myheader ul li{
   margin: 0px 10px;
   font-size: 20px;
 }
-.myheader div{
+.googleAuth{
   display: flex;
   margin-left: auto !important;
+}
+svg{
+  height: 30px;
+  width: 30px;
+}
+.notificationIcon{
+  display: flex;
+  margin-left: 795px;
+  padding: 10px;
+  margin-top: 8px;
+  cursor: pointer;
+}
+.notification {
+  position: absolute;
+  margin-left: 920px;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0px 12px 16px 0 rgba(9, 9, 9, 0.47), 0 17px 50px 0 rgba(0,0,0,0.19);
+  padding: 10px;
+  z-index: 1001;
+}
+.items{
+  color: rgb(2, 201, 2);
+  font-weight: 700;
+  font-style: italic;
 }

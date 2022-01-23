@@ -24,14 +24,6 @@ export const createFriend = (formValues) => async (dispatch, getState) =>{
 
 export const fetchFriends = () => async dispatch => {
   const response = await FriendApi.get('/friend');
-  /*console.log(response.data);
-  var HTTPReq = new XMLHttpRequest();
-  HTTPReq.open('GET','http://localhost:3001/friend');
-  await HTTPReq.send();
-  HTTPReq.onreadystatechange = function(res){
-    console.log(res.target.response);
-    dispatch({ type: 'FETCH_FRIENDS', payload: res.target.response });
-  }*/
   dispatch({ type: 'FETCH_FRIENDS', payload: response.data });
 }
 
@@ -53,4 +45,15 @@ export const fetchFriend = (id)=> async dispatch => {
   const response = await FriendApi.get(`/friend/${id}`);
 
   dispatch({type: 'FETCH_FRIEND', payload: response.data});
+}
+
+export const createGroup = (id) => async dispatch => {
+  const frnd = await FriendApi.get(`/friend/${id}`);
+  if(frnd.data.isgrpExists){
+    return;
+  }
+  await FriendApi.patch(`/friend/${id}`, {
+    'name': frnd.name, "birthday": frnd.birthday, "contact": frnd.contact,
+    "userId": frnd.userId, "id": frnd.userId, 'isgrpExists': true
+  });
 }

@@ -3,22 +3,11 @@ import { Field, reduxForm } from 'redux-form';
 import styles from './friendform.module.css';
 
 class FriendForm extends React.Component{
-  renderError({error, touched}){
-    if(touched && error){
-      return (
-        <div className='ui error message'>
-          <div className='header'>{error}</div>
-        </div>
-      );
-    }
-  }
-  renderInput = ({input, label, meta}) => {
-    const className = `field ${meta.error && meta.touched?'error':''}`;
+  renderInput = ({input, label, type}) => {
     return (
-      <div className={className}>
+      <div>
         <label>{label}</label>
-        <input {...input} />
-        {this.renderError(meta)}
+        <input type={type} {...input}/>
       </div>
     );
   }
@@ -29,8 +18,8 @@ class FriendForm extends React.Component{
   render(){
     return (
     <form onSubmit={this.props.handleSubmit(this.onSubmit)} className={styles.form}>
-      <Field name='name' component={this.renderInput} label="Enter Name"/>
-      <Field name='birthday' component={this.renderInput} label="Enter Date of Birth"/>
+     <Field name='name' component={this.renderInput} label="Enter Name"/>
+      <Field name='birthday' component={e=>this.renderInput({...e, type:'date'})} label="Enter Date of Birth"/>
       <Field name='contact' component={this.renderInput} label="Enter Contact detail"/>
     <button className={styles.btn}>Submit</button>
     </form>
