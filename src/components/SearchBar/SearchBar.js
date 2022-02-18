@@ -12,7 +12,7 @@ class SearchBar extends React.Component {
         this.props.changeList(this.props.list);
       }
       else{
-      this.props.changeList(this.props.list.filter(f=>e.target.value===f.name));
+      this.props.changeList(this.props.list.filter(f=>e.target.value.toLowerCase()===f.userName));
       }
       return null;
     }

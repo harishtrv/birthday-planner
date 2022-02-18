@@ -18,7 +18,7 @@ class Card extends React.Component {
   }
 
   closemenu = (e) => {
-    if (e.target.text != 'Open Chat') {
+    if (e.target.text !== 'Book Hotel') {
       this.setState({ clicked: false });
       document.removeEventListener('mousedown', this.closemenu);
     }
@@ -28,20 +28,20 @@ class Card extends React.Component {
       <div className={styles.card}>
         {this.state.clicked ?
           (<div className={styles.menu}>
-            <Link className={styles.menuitems} to='./chat'>
-              Open Chat
-          </Link>
+            <a className={styles.menuitems} href='https://www.zomato.com/bangalore/dine-out'>
+              Book Hotel
+          </a>
           </div>) : ''}
         <div className={styles.details}>
           <div className={styles.threedots} onClick={this.rendermenu}></div>
           <div className={styles.name}>
-            {this.props.friend.name}
+            {this.props.friend.userName}
           </div>
           <div className={styles.contact}>
-            Contact : {this.props.friend.contact}
+            Contact : {this.props.friend.contactNo}
           </div>
           <div className={styles.dob}>
-            Birthday : {this.props.friend.birthday}
+            Birthday : {this.props.friend.DOB}
           </div>
           <Link className={styles.grpButton} to={`/grpchat/${this.props.friend.id}`}>{this.props.friend.isgrpExists ? "Open Group" : "Create Group"}</Link>
         </div>

@@ -9,7 +9,7 @@ import styles from './friendlist.module.css';
 
 class FriendList extends React.Component {
   async componentDidMount() {
-    await this.props.fetchFriends();
+    await this.props.fetchFriends(this.props.userName);
     this.setState({ 'response': this.props.friends });
   }
   state = { 'response': this.props.friends };
@@ -18,7 +18,7 @@ class FriendList extends React.Component {
       return this.state.response.map(friend => <Card key={friend.id} friend={friend} />);
     }
     else {
-      return <p>No results found. change filter setting or add a new friends</p>
+      return <p>No results found. change filter setting or add a new friends</p>;
     }
   }
 
@@ -53,6 +53,6 @@ class FriendList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { isSignedIn: state.auth.isSignedIn, friends: Object.values(state.friends) };
+  return { isSignedIn: state.auth.isSignedIn, friends: Object.values(state.friends), userName: state.user.userName };
 }
 export default connect(mapStateToProps, { fetchFriends })(FriendList);

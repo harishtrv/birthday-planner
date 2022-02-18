@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {setSignIn, setSignOut} from '../../actions';
+import {setGoogleSignIn, setGoogleSignOut} from '../../actions';
 import history from '../../history';
 import styles from './GoogleAuth.module.css';
 
@@ -20,10 +20,10 @@ class GoogleAuth extends React.Component {
   }
   onAuthChangeSetLocalState = (isSignedIn) => {
     if(isSignedIn){
-      this.props.setSignIn(this.auth.currentUser.get().getId());
+      this.props.setGoogleSignIn(this.auth.currentUser.get().getId());
     }
     else {
-      this.props.setSignOut();
+      this.props.setGoogleSignOut();
     }
   }
   onSignInClick = () => {
@@ -68,4 +68,4 @@ class GoogleAuth extends React.Component {
 const mapStateToProps = (state) => {
   return {isSignedIn : state.auth.isSignedIn};
 }
-export default connect(mapStateToProps, {setSignIn,setSignOut})(GoogleAuth);
+export default connect(mapStateToProps, {setGoogleSignIn,setGoogleSignOut})(GoogleAuth);

@@ -7,7 +7,7 @@ class FriendForm extends React.Component{
     return (
       <div>
         <label>{label}</label>
-        <input type={type} {...input}/>
+        <input type={type} {...input} required/>
       </div>
     );
   }

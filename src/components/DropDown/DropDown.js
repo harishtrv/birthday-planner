@@ -9,10 +9,10 @@ class DropDown extends React.Component {
       }
       switch(e.target.value){
         case '0':
-            this.props.changeList(this.props.list.sort((f1,f2)=>f1.name>f2.name));
+            this.props.changeList(this.props.list.sort((f1,f2)=>f1.userName>f2.userName));
             break;
         case '1':
-            this.props.changeList(this.props.list.sort((f1,f2)=>f1.birthday>f2.birthday));
+            this.props.changeList(this.props.list.sort((f1,f2)=>f1.DOB>f2.DOB));
             break;
         default :
             return null;
@@ -20,7 +20,7 @@ class DropDown extends React.Component {
   }
   render(){
     return (
-      <select onChange={(e)=>this.sort(e)}>
+      <select className={styles.select} onChange={(e)=>this.sort(e)}>
         <option value="">Sort By</option>
         <option value="0">Sort By Name</option>
         <option value="1">Sort By DOB</option>
