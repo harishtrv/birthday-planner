@@ -94,9 +94,21 @@
   border-radius: 3px;
   margin: 10px;
   color: red;
-  padding: 5px 40px;
+  padding: 5px 30px;
 }
 .delete:hover{
   color: white;
   background-color: red;
+}
+
+.add{
+  border: 1.5px solid rgb(94, 94, 255);
+  border-radius: 3px;
+  margin: 10px;
+  color: rgb(94, 94, 255);
+  padding: 5px 40px;
+}
+.add:hover{
+  color: white;
+  background-color: rgb(94, 94, 255);
 }

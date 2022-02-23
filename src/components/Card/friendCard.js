@@ -43,11 +43,16 @@ class Card extends React.Component {
           <div className={styles.dob}>
             Birthday : {this.props.friend.DOB}
           </div>
-          <Link className={styles.grpButton} to={`/grpchat/${this.props.friend.id}`}>{this.props.friend.isgrpExists ? "Open Group" : "Create Group"}</Link>
+          <Link className={styles.grpButton} to={`/grpchat/${this.props.friend.userName}`}>{this.props.friend.isgrpExists ? "Open Group" : "Create Group"}</Link>
         </div>
         <div className={styles.twinbuttons}>
-          <Link className={styles.edit} to={`/edit/${this.props.friend.id}`}>Edit</Link>
-          <Link className={styles.delete} to={`/delete/${this.props.friend.id}`}>Delete</Link>
+          <Link className={styles.edit} to={`/chat/${this.props.friend.userName}`}>Chat</Link>
+          {
+            this.props.isFriend ?
+              <Link className={styles.delete} to={`/remove/${this.props.friend.userName}`}>Remove</Link>
+              :
+              <Link className={styles.add} to={`/add/${this.props.friend.userName}`}>Add</Link>
+          }
         </div>
       </div>
     );

@@ -46,6 +46,8 @@ const friendReducer = (state = {}, action = {}) => {
       return { ...state, ..._.mapKeys(action.payload, 'userName') };
     case 'DELETE_FRIEND':
       return _.omit(state, action.payload);
+    case 'SIGN_OUT':
+      return {};
     default:
       return state;
   }

@@ -9,7 +9,7 @@ class DropDown extends React.Component {
       }
       switch(e.target.value){
         case '0':
-            this.props.changeList(this.props.list.sort((f1,f2)=>f1.userName>f2.userName));
+            this.props.changeList(this.props.list.sort((f1,f2)=>f1.userName.toLowerCase()>f2.userName.toLowerCase()));
             break;
         case '1':
             this.props.changeList(this.props.list.sort((f1,f2)=>f1.DOB>f2.DOB));

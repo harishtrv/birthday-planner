@@ -32,30 +32,8 @@ export const fetchFriends = (userName) => async dispatch => {
   dispatch({ type: 'FETCH_FRIENDS', payload: friends.data.friends });
 }
 
-export const createFriend = (formValues) => async (dispatch, getState) => {
-  const { userId } = getState().auth;
-  // const response = await FriendApi.post('/friend', {...formValues, userId});
-  const response = await fetch('http://localhost:3001/friend',
-    {
-      method: 'post', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...formValues, userId })
-    });
-  const data = await response.json();
-
-  dispatch({ type: 'CREATE_FRIEND', payload: data });
-  history.push('/');
-};
-
 export const createUser = (formValues) => async dispatch => {
-  const response = await fetch('http://localhost:3001/users',
-    {
-      method: 'post', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...formValues })
-    });
-  const data = await response.json();
-
-  dispatch({ type: 'CREATE_USER', payload: data });
-  history.push('/cards');
+  await FriendApi.post('/adduser',{...formValues});
 };
 
 export const editFriend = (id, formValues) => async dispatch => {
@@ -65,15 +43,15 @@ export const editFriend = (id, formValues) => async dispatch => {
   history.push('/');
 }
 
-export const deleteFriend = (id) => async dispatch => {
-  await FriendApi.delete(`/friend/${id}`);
+export const deleteFriend = (userName, friendName) => async dispatch => {
+  const response = await FriendApi.delete(`/removefriend/${userName}/${friendName}`);
 
-  dispatch({ type: 'DELETE_FRIEND', payload: id });
+  dispatch({ type: 'DELETE_FRIEND', payload: response.data.friendName });
   history.push('/');
 }
 
-export const fetchFriend = (id) => async dispatch => {
-  const response = await FriendApi.get(`/friend/${id}`);
+export const fetchFriend = (userName) => async dispatch => {
+  const response = await FriendApi.get(`/getusers/${userName}`);
 
   dispatch({ type: 'FETCH_FRIEND', payload: response.data });
 }
@@ -87,4 +65,11 @@ export const createGroup = (id) => async dispatch => {
     'name': frnd.name, "birthday": frnd.birthday, "contact": frnd.contact,
     "userId": frnd.userId, "id": frnd.userId, 'isgrpExists': true
   });
+}
+
+export const addFriend = (userName, friendName) => async dispatch => {
+  const res = await FriendApi.post('/addfriend', { userName, friendName });
+  const response = await FriendApi.get(`/getusers/${res.data.friendName}`);
+  dispatch({ type: 'FETCH_FRIEND', payload: response.data });
+  history.push('/');
 }

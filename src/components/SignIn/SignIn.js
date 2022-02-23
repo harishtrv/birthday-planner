@@ -6,27 +6,32 @@ import { setSignIn } from '../../actions';
 import FriendApi from '../../api/FriendApi';
 
 class SignIn extends React.Component {
+  state = {wrongPW: false}
   renderInput = ({ input, label, type }) => {
     return (
-      <div>
-        <label>{label}</label>
-        <input type={type} {...input} required />
+      <div className={styles.inputField}>
+        <input type={type} {...input} required placeholder={label} />
       </div>
     );
   }
   onSubmit = async (formValues) => {
+    this.setState({wrongPW: false})
     console.log(formValues);
     const res = await FriendApi.get(`/authenticate/${formValues.userName}/${formValues.pw}`);
     if(res.data.message === "success"){
       this.props.setSignIn(formValues.userName);
+    }
+    else{
+      this.setState({wrongPW: true})
     }
   }
   render() {
     return (
       <div>
         <form onSubmit={this.props.handleSubmit(this.onSubmit)} className={styles.form}>
-          <Field name='userName' component={this.renderInput} label="Enter User Name" />
-          <Field name='pw' component={this.renderInput} label="Enter PW" />
+          <Field name='userName' component={this.renderInput} label="Enter User Name" type='text' />
+          <Field name='pw' component={this.renderInput} label="Enter PW" type='password' />
+          {this.state.wrongPW ? <p>user name or password is wrong</p> : null}
           <button className={styles.btn}>Submit</button>
         </form>
       </div>

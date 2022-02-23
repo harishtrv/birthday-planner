@@ -5,9 +5,10 @@ import FriendList from './FriendList/FriendList';
 import history from '../history';
 import Home from './Home/Home';
 import EditFriend from './EditFriend/EditFriend';
-import AddFriend from './AddFriend/AddFriend';
+import ShowFriendSuggestion from './ShowFriendSuggestion/ShowFriendSuggestion';
 import DeleteFriend from './DeleteFriend/DeleteFriend';
 import GroupChat from './GroupChat/GroupChat';
+import AddFriend from './AddFriend/AddFriend';
 
 const App = ()=>{
 
@@ -17,10 +18,11 @@ const App = ()=>{
     <Switch>
       <Route path='/' exact component={Home} />
       <Route path='/cards' exact component={FriendList} />
-      <Route path='/add' exact component={AddFriend} />
-      <Route path='/edit/:id' exact component={EditFriend} />
-      <Route path='/delete/:id' exact component={DeleteFriend} />
-      <Route path='/grpchat/:id' exact component={GroupChat} />
+      <Route path='/showFriendSuggestion' exact component={ShowFriendSuggestion} />
+      <Route path='/edit/:userName' exact component={EditFriend} />
+      <Route path='/remove/:userName' exact component={DeleteFriend} />
+      <Route path='/grpchat/:userName' exact component={GroupChat} />
+      <Route path='/add/:userName' exact component={AddFriend} />
     </Switch>
     </Router>
     </div>);
