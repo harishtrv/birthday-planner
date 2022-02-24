@@ -14,7 +14,7 @@ class AddFriend extends React.Component {
       <React.Fragment>
         <button
           onClick={() => this.props.addFriend(this.props.userName, userName)}
-          className={styles.negativebtn}>
+          className={styles.positivebtn}>
           Confirm
         </button>
         <Link to='/ShowFriendSuggestion' className={styles.neutralbtn}>Cancel</Link>

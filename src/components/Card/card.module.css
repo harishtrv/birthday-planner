@@ -41,7 +41,7 @@
 .details{
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin: 10px 10px 0px 10px;
   line-break: normal;
 }
 .name{
@@ -50,7 +50,6 @@
   margin: 5px;
   color : black;
   overflow: hidden;
-  width: 235px;
 }
 .contact{
   margin: 3px;
@@ -68,15 +67,14 @@
   border-radius: 4px;
   margin: 5px;
   text-align: center;
-  padding: 9px;
+  padding: 8px;
 }
 .grpButton:hover{
   color: white;
 }
 .twinbuttons{
   display: flex;
-  margin: 10px 10px;
-  align-content: center;
+  justify-content: center
 }
 .edit{
   border: 1.5px solid rgb(0, 199, 0);
@@ -111,4 +109,47 @@
 .add:hover{
   color: white;
   background-color: rgb(94, 94, 255);
+}
+@media only screen and (max-width: 600px) {
+  .card{
+    display: flex;
+    border: 1.5px solid black;
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 10px;
+    width: 180px;
+    margin: 5px;
+    z-index: 2;
+    overflow: auto;
+  }
+  .add{
+    border: 1.5px solid rgb(94, 94, 255);
+    border-radius: 3px;
+    margin: 10px;
+    color: rgb(94, 94, 255);
+    padding: 5px 10px;
+  }
+  .edit{
+    border: 1.5px solid rgb(0, 199, 0);
+    border-radius: 3px;
+    margin: 10px;
+    padding: 5px 10px;
+    color: rgb(0, 199, 0);
+  }
+  .delete{
+    border: 1.5px solid red;
+    border-radius: 3px;
+    margin: 10px;
+    color: red;
+    padding: 5px 5px;
+  }
+  .grpButton{
+    background-color: rgb(107, 107, 107);
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 5px;
+    text-align: center;
+    padding: 9px;
+  }
 }

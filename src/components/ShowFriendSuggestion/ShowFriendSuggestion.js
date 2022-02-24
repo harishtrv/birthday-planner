@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import Card from '../Card/friendCard';
 import FriendApi from '../../api/FriendApi';
 import history from '../../history';
+import styles from './friendsuggestion.module.css';
+
 class ShowFriendSuggestion extends React.Component {
   state = { 'suggestedFriends' : []};
   componentDidMount = async () => {
@@ -16,7 +18,7 @@ class ShowFriendSuggestion extends React.Component {
   };
 
   render() {
-    return (<div style={{display:'grid', gridTemplateColumns: 'auto auto auto auto'}}>
+    return (<div className={styles.cardlist}>
       {this.state.suggestedFriends}
     </div>);
   }

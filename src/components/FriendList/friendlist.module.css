@@ -1,5 +1,5 @@
 .container{
-margin: 20px;
+margin: 0px;
 }
 
 .add{
@@ -21,10 +21,24 @@ margin: 20px;
 
 .grid{
   display: grid;
-  grid-template-columns: 320px 150px 170px;
+  grid-template-columns: 120px 100px;
+  padding: 5px;
 }
 
 .cardgrid{
   display: grid;
   grid-template-columns: auto auto auto auto;
+}
+.options{
+  display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+  .cardgrid{
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .options{
+    display: inline;
+  }
 }

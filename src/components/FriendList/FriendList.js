@@ -9,14 +9,14 @@ import styles from './friendlist.module.css';
 
 class FriendList extends React.Component {
   async componentDidMount() {
-    if(this.props.isSignedIn){
+    if (this.props.isSignedIn) {
       await this.props.fetchFriends(this.props.userName);
       this.setState({ 'response': this.props.friends });
     }
-    else{
+    else {
       history.push('/');
     }
-    
+
   }
   state = { 'response': this.props.friends };
   renderAllFriends = () => {
@@ -43,12 +43,13 @@ class FriendList extends React.Component {
   render() {
     return (
       <div className={styles.container}>
-        <div className={styles.grid}>
+        <div className={styles.options}>
           <SearchBar changeList={this.changeList} list={this.props.friends} />
-          <DropDown changeList={this.changeList} list={this.props.friends} />
-          <button className={styles.add} onClick={this.addFriend}>Add New Friend</button>
+          <div className={styles.grid}>
+            <DropDown changeList={this.changeList} list={this.props.friends} />
+            <button className={styles.add} onClick={this.addFriend}>Add New Friend</button>
+          </div>
         </div>
-        <br />
         <br />
         <div className={styles.cardgrid}>
           {this.renderAllFriends()}
