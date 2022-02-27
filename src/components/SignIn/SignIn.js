@@ -16,7 +16,6 @@ class SignIn extends React.Component {
   }
   onSubmit = async (formValues) => {
     this.setState({wrongPW: false})
-    console.log(formValues);
     const res = await FriendApi.get(`/authenticate/${formValues.userName}/${formValues.pw}`);
     if(res.data.message === "success"){
       this.props.setSignIn(formValues.userName);

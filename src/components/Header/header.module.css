@@ -50,11 +50,14 @@ svg{
 h3{
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
   font-weight: 400;
-  color: #4183c4;;
+  color: #293ac3;;
   cursor: pointer;
 }
 .floatRight{
   float: right;
+}
+a{
+  color: #293ac3;
 }
 @media only screen and (max-width: 600px) {
   .title{

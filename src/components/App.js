@@ -9,6 +9,7 @@ import ShowFriendSuggestion from './ShowFriendSuggestion/ShowFriendSuggestion';
 import DeleteFriend from './DeleteFriend/DeleteFriend';
 import GroupChat from './GroupChat/GroupChat';
 import AddFriend from './AddFriend/AddFriend';
+import About from './About/About';
 
 const App = ()=>{
 
@@ -23,6 +24,7 @@ const App = ()=>{
       <Route path='/remove/:userName' exact component={DeleteFriend} />
       <Route path='/grpchat/:userName' exact component={GroupChat} />
       <Route path='/add/:userName' exact component={AddFriend} />
+      <Route path='/about' exact component={About} />
     </Switch>
     </Router>
     </div>);
