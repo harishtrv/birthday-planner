@@ -1,8 +1,11 @@
 .container{
   padding: 10px;
+  margin: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 1001;
+  float: right;
 }
 
 .container2{
@@ -21,12 +24,41 @@
 }
 
 .btn{
-  border: #ed7103;
+  border: none;
   background-color: #ed7103;
+  color: white;
   border-radius: 3px;
   margin: 15px 5px;
-  padding: 10px 45px;
-  color: white;
+  padding: 2px 50px;
   font-weight: 600;
   cursor: pointer;
+}
+h1{
+  display: flex;
+  justify-content: center;
+}
+.selection{
+  display: grid;
+  grid-template-columns: auto auto;
+  background-color: #ed7103;
+  border-radius: 15px;
+}
+.signUphr{
+  width: 50%;
+  margin-left: 0;
+}
+.signInhr{
+  width: 50%;
+  margin-right: 0;
+}
+@media only screen and (max-width: 1050px) {
+  .container{
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1001;
+    position: absolute;
+  }
 }
