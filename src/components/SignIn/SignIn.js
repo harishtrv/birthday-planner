@@ -18,6 +18,8 @@ class SignIn extends React.Component {
     this.setState({wrongPW: false})
     const res = await FriendApi.get(`/authenticate/${formValues.userName}/${formValues.pw}`);
     if(res.data.message === "success"){
+      sessionStorage.setItem('userName', formValues.userName);
+      sessionStorage.setItem(formValues.userName, res.data.sessionId);
       this.props.setSignIn(formValues.userName);
     }
     else{

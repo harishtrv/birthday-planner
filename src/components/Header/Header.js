@@ -72,6 +72,7 @@ class Header extends React.Component {
   }
   signOut = async () => {
     await this.props.setSignOut();
+    sessionStorage.clear();
     history.push('/');
   }
   render() {

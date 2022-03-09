@@ -5,6 +5,8 @@ import SignUp from '../SignUp/SignUp';
 import SignIn from '../SignIn/SignIn';
 import styles from './home.module.css';
 import Carousel from '../Carousel/Carousel';
+import { setSignIn } from '../../actions';
+import FriendApi from '../../api/FriendApi';
 
 class Home extends React.Component {
   state = { buttonStatus: false }
@@ -12,6 +14,19 @@ class Home extends React.Component {
     if (this.props.isSignedIn) {
       history.push('/cards');
       return <div></div>;
+    }
+    if (sessionStorage.getItem('userName') &&
+      sessionStorage.getItem(sessionStorage.getItem('userName'))
+    ) {
+      const userName = sessionStorage.getItem('userName');
+      const id = sessionStorage.getItem(userName);
+      FriendApi.get(`/sessionValidation/${userName}/${id}`).then(res =>{
+        if (res.data.message === 'success') {
+          this.props.setSignIn(userName);
+          history.push('/cards');
+          return <div></div>;
+        }
+      });
     }
     return <div className={styles.container2}>
       <div className={styles.selection}>
@@ -44,4 +59,4 @@ class Home extends React.Component {
 const mapStateToProps = (state) => {
   return { isSignedIn: state.auth.isSignedIn || state.user.isSignedIn };
 }
-export default connect(mapStateToProps, null)(Home);
+export default connect(mapStateToProps, { setSignIn })(Home);
