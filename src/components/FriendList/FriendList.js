@@ -8,6 +8,7 @@ import { fetchFriends } from '../../actions';
 import styles from './friendlist.module.css';
 
 class FriendList extends React.Component {
+  state = {ctrl: false};
   async componentDidMount() {
     if (this.props.isSignedIn) {
       await this.props.fetchFriends(this.props.userName);
@@ -16,7 +17,29 @@ class FriendList extends React.Component {
     else {
       history.push('/');
     }
-
+    window.addEventListener('keydown', this.keyDownListenerForCtrlAndI, true);
+    window.addEventListener('keyup', this.keyUpListenerForCtrlAndI, true);
+  }
+  keyDownListenerForCtrlAndI = (e) => {
+    if (e.keyCode === 17) {
+      this.setState({ctrl: true});
+    }else if(this.state.ctrl && e.key === 'i'){
+      e.preventDefault();
+    }
+  }
+  keyUpListenerForCtrlAndI = (e) => {
+    if(this.state.ctrl){
+      if(e.keyCode === 17){
+        this.setState({ctrl: false});
+      }else if(e.key === 'i'){
+        history.push('/about');
+      }
+      
+    }
+  }
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.keyDownListener, true);
+    window.removeEventListener('keyup', this.keyUpListener, true);
   }
   state = { 'response': this.props.friends };
   renderAllFriends = () => {

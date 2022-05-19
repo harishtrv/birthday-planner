@@ -1,4 +1,4 @@
-import FriendApi from '../api/FriendApi';
+import FriendApi from '../api/Api';
 import history from '../history';
 
 export const setSignIn = (userName) => {

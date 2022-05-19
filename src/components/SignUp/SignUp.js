@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { createUser, setSignIn } from '../../actions';
 import SignUpForm from './SignUpForm';
-import FriendApi from '../../api/FriendApi';
+import FriendApi from '../../api/Api';
 
 class SignUp extends React.Component {
 

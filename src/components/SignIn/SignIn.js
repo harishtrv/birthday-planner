@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import {connect} from 'react-redux';
 import styles from './signin.module.css';
 import { setSignIn } from '../../actions';
-import FriendApi from '../../api/FriendApi';
+import FriendApi from '../../api/Api';
 
 class SignIn extends React.Component {
   state = {wrongPW: false}

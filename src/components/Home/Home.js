@@ -6,7 +6,7 @@ import SignIn from '../SignIn/SignIn';
 import styles from './home.module.css';
 import Carousel from '../Carousel/Carousel';
 import { setSignIn } from '../../actions';
-import FriendApi from '../../api/FriendApi';
+import FriendApi from '../../api/Api';
 
 class Home extends React.Component {
   state = { buttonStatus: false }

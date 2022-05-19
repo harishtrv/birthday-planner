@@ -10,6 +10,7 @@ import DeleteFriend from './DeleteFriend/DeleteFriend';
 import GroupChat from './GroupChat/GroupChat';
 import AddFriend from './AddFriend/AddFriend';
 import About from './About/About';
+import Chat from './Chat/Chat';
 
 const App = () => {
 
@@ -26,6 +27,7 @@ const App = () => {
           <Route path='/grpchat/:userName' exact component={GroupChat} />
           <Route path='/add/:userName' exact component={AddFriend} />
           <Route path='/about' exact component={About} />
+          <Route path='/chat/:fName' exact component={Chat} />
         </Switch>
       </Router>
     </div>);

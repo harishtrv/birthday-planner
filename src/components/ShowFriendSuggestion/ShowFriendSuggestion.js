@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Card from '../Card/friendCard';
-import FriendApi from '../../api/FriendApi';
+import FriendApi from '../../api/Api';
 import history from '../../history';
 import styles from './friendsuggestion.module.css';
 
